@@ -1,27 +1,21 @@
-i=0
-info = ["id","name","school"]
-num = ["num1", "num2", "num3"]
-liebiao= ["l1","l2","l3"]
-while i<=3 :
-    i=i+1
-    print i
 
-info.insert(2, liebiao[2])
-print info
-# info.insert(2,liebiao[0])
-# print info
-#
-# print info+liebiao
+class Demo:
+    def __init__(self, data, name):
+        self.data = [12]
+        self.name = "dai"
+    def print_test(self):
+        print self.data
+        print self.name
 
-# if 2.04:
-#     print 'ok'
-# else :
-#     print 'not'
+d = Demo([33],"jitao")
+d.print_test()
 
-# c = 0
-#
-# while c <= 10 :
-#     print c
-#     c=c+1
+class car():
+    def call(self):
+        print "car parent"
+class mycar(car):
+    def call(self):
+        print "car zub"
 
-
+my = mycar()
+my.call()

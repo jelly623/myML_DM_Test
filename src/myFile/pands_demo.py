@@ -1,6 +1,7 @@
 # __*__ coding: utf-8 __*__
 
 import pandas as pd
+import numpy as np
 
 df1 = pd.DataFrame({'key':['b','b','a','c','a','a','b'],
                     "data1":range(7)})
@@ -30,6 +31,18 @@ print right1
 # 清除掉重复的数据
 data = pd.DataFrame({'k1':['one'] * 3 + ['two'] * 4,
                      'k2':[1,1,2,3,3,4,4]})
-print "boolean:"
-print data.duplicated()
-# page 216
+# map的用法
+my_data = pd.DataFrame({"name":["daijitao","fengshuting"],
+                        "age":["22","22"]})
+flag = {"daijitao":"nan","fengshuting":"nv"}
+my_data["gender"] = my_data["name"].map(str.lower).map(flag)
+print my_data
+
+#正态分布数据
+np.random.seed(12345)
+data = pd.DataFrame(np.random.randn(1000,4)) # 代表1000行 4列数据
+print data
+val = "aditjjitaojijij"
+print val.count("ji0") # 子串的出现次数
+print val.index("j")
+print val.find("j")

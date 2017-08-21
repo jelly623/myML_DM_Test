@@ -17,12 +17,12 @@ with open(data_filename, "r") as input_file:
     #     """ 本质上是一个个的元祖 """
     #     print j
     for i, row in enumerate(reader):
-        print "i: ",i
-        print row
+        print "row: ", row
         data = [float(datum) for datum in row[:-1]]
         X[i] = data
         # 读取类别值，‘g' is good, float:1.0
         y[i] = row[-1] == 'g'
 
 from sklearn.cross_validation import train_test_split
+# 训练集 测试集
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=14)

@@ -18,9 +18,30 @@ elif grade==100 :
 else :
 	print '零分'
 
+class Word:
+	def __init__(self, word):
+		self.word = word
+	def equals(self, word2):
+		return word2.lower() == self.word.lower()
+
+first = "dai"
+second = Word("Dai")
+print second.equals(first)
 
 
+class Word:
+	def __init__(self, word):
+		self.word = word
+	def __eq__(self, word2):
+		return word2.lower() == self.word.lower()
 
+print "dai" == Word("Dai")
+print len("dai")
 
+class Bill:
+    def __init__(self, desc):
+        self.desc = desc
 
-
+class Bill:
+    def __init__(self, desc):
+        self.len = desc

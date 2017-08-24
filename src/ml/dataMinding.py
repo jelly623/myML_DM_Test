@@ -26,7 +26,6 @@ with open(data_filename, "r") as input_file:
 '''
 K 近邻算法的应用
 '''
-
 from sklearn.cross_validation import train_test_split
 
 # 训练集 测试集
@@ -60,7 +59,18 @@ for n_neighbors in parameter_values:
 
 # 绘图
 from matplotlib import pyplot as plt
-plt.plot(parameter_values, avg_scores, '-o')
-plt.show()
-print "end"
+# plt.plot(parameter_values, avg_scores, '-o')
+# plt.show()
+# print "end"
 
+"""数据的规范化"""
+print "数据的规范化"
+X_broken = np.array(X)
+X_broken[:,::2] /= 10 # [行，列]
+
+
+
+estimator = KNeighborsClassifier()
+original_scores = cross_val_score(estimator, X, y, scoring='accuracy')
+print "=========================="
+print np.mean(original_scores)
